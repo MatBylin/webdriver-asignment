@@ -1,6 +1,7 @@
 package pages;
 
 import base.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,42 +34,53 @@ public class BlueAlertFormPage extends BasePage {
     @FindBy(id = "form_button_next")
     private WebElement confirmBtn;
     @FindBy(xpath = "//span[@class='invalid-feedback ']")
-    private WebElement invalidFeedbackValidation;
+    private WebElement invalidFeedbackValidator;
+    @FindBy(xpath = "//*[@id='is_pesel']/following-sibling::span[@class='invalid-feedback ']")
+    private WebElement peselInvalidFeedback;
 
-    //    @FindBy(xpath = "//*[@id='is_pesel']/following-sibling::span[@class='invalid-feedback ']")
-
-    public BlueAlertFormPage fillFirstName(String firstName){
+    public BlueAlertFormPage fillFirstName(String firstName) {
         firstNameInput.sendKeys(firstName);
         return this;
     }
-    public BlueAlertFormPage fillLastName(String lastName){
+    
+    public BlueAlertFormPage fillLastName(String lastName) {
         lastNameInput.sendKeys(lastName);
         return this;
     }
-    public BlueAlertFormPage fillEmail(String email){
+
+    public BlueAlertFormPage fillEmail(String email) {
         emailInput.sendKeys(email);
         return this;
     }
-    public BlueAlertFormPage fillPhoneNumber(String phoneNumber){
+
+    public BlueAlertFormPage fillPhoneNumber(String phoneNumber) {
         phoneNumberInput.sendKeys(phoneNumber);
         return this;
     }
-    public BlueAlertFormPage fillPeselNumber(String peselNumber){
+
+    public BlueAlertFormPage fillPeselNumber(String peselNumber) {
         peselNumberInput.sendKeys(peselNumber);
         return this;
     }
-    public BlueAlertFormPage fillIdNumber(String idNumber){
+
+    public BlueAlertFormPage fillIdNumber(String idNumber) {
         idNumberInput.sendKeys(idNumber);
         return this;
     }
-    public BlueAlertFormPage fillDate(String date){
+
+    public BlueAlertFormPage fillDate(String date) {
         dateInput.sendKeys(date);
         dateIcon.click();
         return this;
     }
-    public BlueAlertFormPage clickConfirmButton(){
+
+    public BlueAlertFormAgreementPage clickConfirmButton() {
         confirmBtn.click();
-        return this;
+        return new BlueAlertFormAgreementPage(driver);
+    }
+
+    public int returnNumberOfInvalidFeedbackValidators() {
+        return driver.findElements(By.xpath("//span[@class='invalid-feedback '])")).size();
     }
 
     public BlueAlertFormPage load() {
