@@ -3,12 +3,10 @@ package base;
 import browser.BrowserType;
 import browser.SimpleDriverProvider;
 import config.Configuration;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pages.BlueAlertFormPage;
 
 import java.util.concurrent.TimeUnit;
