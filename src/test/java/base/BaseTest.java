@@ -16,7 +16,7 @@ public class BaseTest {
     private Configuration configuration = ConfigFactory.create(Configuration.class);
     private String mainPageUrl = configuration.applicationMainUrl();
     private WebDriver driver;
-    private BlueAlertFormPage blueAlertFormPage;
+    protected BlueAlertFormPage blueAlertFormPage;
 
     @BeforeEach
     public void setUp() {

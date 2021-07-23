@@ -28,6 +28,8 @@ public class BlueAlertFormPage extends BasePage {
     private WebElement idNumberInput;
     @FindBy(id = "id_date")
     private WebElement dateInput;
+    @FindBy(xpath = "//*[@class='input-group-text']")
+    private WebElement dateIcon;
     @FindBy(id = "form_button_next")
     private WebElement confirmBtn;
     @FindBy(xpath = "//span[@class='invalid-feedback ']")
@@ -59,8 +61,9 @@ public class BlueAlertFormPage extends BasePage {
         idNumberInput.sendKeys(idNumber);
         return this;
     }
-    public BlueAlertFormPage fillDate(String dateInput){
-        this.dateInput.sendKeys(dateInput);
+    public BlueAlertFormPage fillDate(String date){
+        dateInput.sendKeys(date);
+        dateIcon.click();
         return this;
     }
     public BlueAlertFormPage clickConfirmButton(){
