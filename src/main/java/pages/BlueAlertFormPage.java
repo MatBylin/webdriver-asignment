@@ -35,10 +35,6 @@ public class BlueAlertFormPage extends BasePage {
     private WebElement dateIcon;
     @FindBy(id = "form_button_next")
     private WebElement confirmBtn;
-    @FindBy(xpath = "//span[@class='invalid-feedback ']")
-    private WebElement invalidFeedbackValidator;
-    @FindBy(xpath = "//*[@id='is_pesel']/following-sibling::span[@class='invalid-feedback ']")
-    private WebElement peselInvalidFeedback;
 
     public BlueAlertFormPage fillFirstName(String firstName) {
         log.info("Filling first name with : {}", firstName);
