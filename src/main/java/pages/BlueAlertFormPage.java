@@ -1,11 +1,13 @@
 package pages;
 
 import base.BasePage;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Slf4j
 public class BlueAlertFormPage extends BasePage {
 
     private String pageUrl;
@@ -39,42 +41,50 @@ public class BlueAlertFormPage extends BasePage {
     private WebElement peselInvalidFeedback;
 
     public BlueAlertFormPage fillFirstName(String firstName) {
+        log.info("Filling first name with : {}", firstName);
         firstNameInput.sendKeys(firstName);
         return this;
     }
-    
+
     public BlueAlertFormPage fillLastName(String lastName) {
+        log.info("Filling last name with : {}", lastName);
         lastNameInput.sendKeys(lastName);
         return this;
     }
 
     public BlueAlertFormPage fillEmail(String email) {
+        log.info("Filling email with : {}", email);
         emailInput.sendKeys(email);
         return this;
     }
 
     public BlueAlertFormPage fillPhoneNumber(String phoneNumber) {
+        log.info("Filling phone number with : {}", phoneNumber);
         phoneNumberInput.sendKeys(phoneNumber);
         return this;
     }
 
     public BlueAlertFormPage fillPeselNumber(String peselNumber) {
+        log.info("Filling pesel number with : {}", peselNumber);
         peselNumberInput.sendKeys(peselNumber);
         return this;
     }
 
     public BlueAlertFormPage fillIdNumber(String idNumber) {
+        log.info("Filling id number with : {}", idNumber);
         idNumberInput.sendKeys(idNumber);
         return this;
     }
 
     public BlueAlertFormPage fillDate(String date) {
+        log.info("Filling date with : {}", date);
         dateInput.sendKeys(date);
         dateIcon.click();
         return this;
     }
 
     public BlueAlertFormAgreementPage clickConfirmButton() {
+        log.info("Clicking confirm button");
         confirmBtn.click();
         return new BlueAlertFormAgreementPage(driver);
     }
@@ -84,6 +94,7 @@ public class BlueAlertFormPage extends BasePage {
     }
 
     public BlueAlertFormPage load() {
+        log.info("Loading ble alert form page, with url: {}", pageUrl);
         driver.navigate().to(pageUrl);
         return this;
     }
