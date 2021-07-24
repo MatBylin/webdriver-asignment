@@ -11,7 +11,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class BlueAlertFormTest extends BaseTest {
 
     @Test
-    public void fillBlueAlertFormPageValidateRedirectionToAgreementPage() {
+    public void fillBlueAlertFormPageValidateRedirectionToAgreementPageByAssertingPageTitle() {
         blueAlertFormPage
                 .load()
                 .fillFirstName(VALID_FIRST_NAME)
